@@ -12,66 +12,67 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
-namespace sellshort
+using System.Windows.Threading;
+using System.Windows.Shapes;
+namespace _312551Ethanbiggey
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
+       
+
+        DispatcherTimer GameTimer = new DispatcherTimer();
         public MainWindow()
         {
             InitializeComponent();
+
+            GameTimer.Tick += GameTimer_Tick;
+            GameTimer.Interval = new TimeSpan(0, 0, 0, 0, 1/int.MaxValue);//fps
+            GameTimer.Start();
+        }
+        private void GameTimer_Tick(object sender, EventArgs e)
+        {
+            Random random = new Random();
             
-        }
-        private static void Output()
-        {
-            int[] arr = new int[] { 56, 12, 99, 32, 1, 95, 25, 5, 100, 84 };
-            int n = arr.Length;
-            int i;
-            Console.WriteLine("Shell Sort");
-            Console.Write("Initial array is: ");
-            for (i = 0; i < n; i++)
-            {
-                Console.Write(arr[i] + " ");
-            }
-            shellSort(arr, n);
-            Console.Write("\nSorted Array is: ");
-            for (i = 0; i < n; i++)
-            {
-                Console.Write(arr[i] + " ");
-            }
-        }
-        private static void shellSort(int[] arr, int n)
-        {
-            int i, j, pos, temp;
-            pos = 3;
-            while (pos > 0)
-            {
-                for (i = 0; i < n; i++)
-                {
-                    j = i;
-                    temp = arr[i];
-                    while ((j >= pos) && (arr[j - pos] > temp))
-                    {
-                        arr[j] = arr[j - pos];
-                        j = j - pos;
-                    }
-                    arr[j] = temp;
-                }
-                if (pos / 2 != 0)
-                    pos = pos / 2;
-                else if (pos == 1)
-                    pos = 0;
-                else
-                    pos = 1;
-            }
+            
+            int i = random.Next(1,400);
+            int[] ii = new int[3];
+            ii[0] = random.Next(0, 256);
+            ii[1] = random.Next(0, 256);
+            ii[2] = random.Next(0, 256);
+            int iii = random.Next(0, 361);
+            double[] iiii = new double[2];
+            iiii[0] = random.Next(0, 100);
+            iiii[1] = random.Next(0, 100);
+            int[] iiiii = new int[3];
+            iiiii[0] = random.Next(0, 256);
+            iiiii[1] = random.Next(0, 256);
+            iiiii[2] = random.Next(0, 256);
+            int[] iiiiii = new int[3];
+            iiiiii[0] = random.Next(0, 256);
+            iiiiii[1] = random.Next(0, 256);
+            iiiiii[2] = random.Next(0, 256);
+            int[] iiiiiii = new int[3];
+            iiiiiii[0] = random.Next(0, 256);
+            iiiiiii[1] = random.Next(0, 256);
+            iiiiiii[2] = random.Next(0, 256);
+            window.Background = new SolidColorBrush(Color.FromRgb((byte)iiiiiii[0], (byte)iiiiiii[1], (byte)iiiiiii[2]));
+            stckGey.Background = new SolidColorBrush(Color.FromRgb((byte)iiiiii[0], (byte)iiiiii[1], (byte)iiiiii[2]));
+            txtBx.Foreground = new SolidColorBrush(Color.FromRgb((byte)ii[0], (byte)ii[1], (byte)ii[2]));
+            txtBx.Background = new SolidColorBrush(Color.FromRgb((byte)iiiii[0], (byte)iiiii[1], (byte)iiiii[2]));
+
+            txtBx.FontSize = i;
+            RotateTransform rotateTransform = new RotateTransform();
+            rotateTransform.Angle = iii;
+            stckGey.RenderTransformOrigin = new Point(iiii[0]/100, iiii[1]/100);
+            stckGey.RenderTransform = new RotateTransform { Angle = iii };
+            txtBx.Text = "Ethan big gey";
         }
 
-        private void Btn_Click(object sender, RoutedEventArgs e)
-        {
-            Output();
-        }
+
+
+        
     }
 }
